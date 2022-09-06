@@ -13,9 +13,10 @@
 
  [React Native BootSplash](https://github.com/zoontek/react-native-bootsplash)  In this template you only have to change the image in ./assets/splash/splash.png and run again `npx react-native generate-bootsplash ./assets/splash/andTheNameOfyourNewImage.png` . If you need an animatation I recomend you watch examples in YouTube. Read the doc, you can add some props when run the command in the Terminal.
  [React Native FastImage](https://github.com/DylanVann/react-native-fast-image) For catching images like browers instead of `<Image />`component from `'react-native'` . Works really well when you need to call heavy images from your backend.
- [Babel Module Resolver](https://github.com/tleunen/babel-plugin-module-resolver/blob/master/DOCS.md) For global imports like `import {Container} from '@components'` instead of `../../../../../components`
+ 
+ [Babel Module Resolver](https://github.com/tleunen/babel-plugin-module-resolver/blob/master/DOCS.md) For global imports like `import {Container} from '@components'` instead of `../../../../../components`.
 
- [Redux Toolkit](https://redux-toolkit.js.org/) For state management
+ [Redux Toolkit](https://redux-toolkit.js.org/) For state management.
 
 
 ***

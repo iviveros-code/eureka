@@ -1,5 +1,9 @@
 # eureka
->[!NOTE]
+
+> [!NOTE]  
+> Highlights information that users should take into account, even when skimming.
+
+> [!NOTE]
 
 > This app was made from the following boilerplate:
 

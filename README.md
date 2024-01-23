@@ -1,5 +1,5 @@
 # eureka
->[!NOTE]
+>[ !NOTE ]
 
 > This app was made from the following boilerplate:
 

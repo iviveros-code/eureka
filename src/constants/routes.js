@@ -1,0 +1,11 @@
+export const NAVIGATION = {
+  HOME: {
+    HOME: 'NAVIGATION.HOME.HOME',
+  },
+  FAV: {
+    FAV: 'NAVIGATION.FAV.FAV',
+  },
+  PROFILE: {
+    PROFILE: 'NAVIGATION.PROFILE.PROFILE',
+  },
+};

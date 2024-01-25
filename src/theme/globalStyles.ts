@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
-import { heightPercentageToDP as hp } from 'react-native-responsive-screen'
 
+import { verticalScale } from '@helpers'
 import {
   FontSize10,
   FontSize12,
@@ -142,10 +142,10 @@ export const createGlobalStyles = (theme: any) =>
     footerButtons: {
       flex: 1,
       justifyContent: 'flex-end',
-      marginBottom: hp(2),
+      marginBottom: verticalScale(20),
     },
     marginButtons: {
-      marginVertical: hp(1),
+      marginVertical: verticalScale(10),
     },
     containerTitle: {
       alignSelf: 'center',
@@ -153,16 +153,12 @@ export const createGlobalStyles = (theme: any) =>
     title: {
       textAlign: 'center',
     },
-    footerButtonsKeyboard: {
-      top: hp(25),
-    },
+
     row: {
       flexDirection: 'row',
       alignItems: 'center',
     },
-    overlapLayout: {
-      bottom: hp(7.5),
-    },
+
     jcontent: {
       justifyContent: 'space-between',
     },

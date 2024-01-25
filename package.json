@@ -26,7 +26,6 @@
     "react-native-config": "^1.5.1",
     "react-native-device-info": "^10.3.0",
     "react-native-fast-image": "^8.6.3",
-    "react-native-geolocation-service": "^5.3.1",
     "react-native-localization": "^2.3.2",
     "react-native-paper": "^5.1.4",
     "react-native-permissions": "^4.0.4",
@@ -37,7 +36,6 @@
     "react-native-splash-screen": "^3.3.0",
     "react-native-svg": "^13.13.0",
     "react-native-vector-icons": "^10.0.0",
-    "react-native-vision-camera": "^3.8.2",
     "react-redux": "^8.0.5",
     "redux-persist": "^6.0.0",
     "yup": "^1.2.0"

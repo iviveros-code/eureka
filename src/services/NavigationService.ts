@@ -1,6 +1,6 @@
 import { createNavigationContainerRef } from '@react-navigation/native'
-import { RootStackParamList } from '@navigation'
-import { ScreenName } from '@types'
+
+import { ScreenName, RootStackParamList } from '@types'
 
 const ref = createNavigationContainerRef<RootStackParamList>()
 

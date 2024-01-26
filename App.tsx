@@ -5,6 +5,7 @@ import { Provider as ReduxProvider } from 'react-redux'
 import { Provider as PaperProvider } from 'react-native-paper'
 import SplashScreen from 'react-native-splash-screen'
 
+import { NavigationService } from '@services'
 import { StackNavigation } from '@navigation/stack_navigation'
 import { theme } from '@theme'
 
@@ -18,7 +19,7 @@ const App = () => {
   return (
     <ReduxProvider store={store}>
       <PaperProvider theme={theme}>
-        <NavigationContainer>
+        <NavigationContainer ref={NavigationService.ref}>
           <StackNavigation />
         </NavigationContainer>
       </PaperProvider>

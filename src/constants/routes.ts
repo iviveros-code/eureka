@@ -1,15 +1,3 @@
-export const NAVIGATION = {
-  HOME: {
-    HOME: 'NAVIGATION.HOME.HOME',
-  },
-  FAV: {
-    FAV: 'NAVIGATION.FAV.FAV',
-  },
-  PROFILE: {
-    PROFILE: 'NAVIGATION.PROFILE.PROFILE',
-  },
-}
-
 const SCREEN_NAMES = {
   TAB_NAVIGATION: 'TAB_NAVIGATION',
   HOME: 'HOME',

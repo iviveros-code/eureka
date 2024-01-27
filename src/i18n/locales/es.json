@@ -1,5 +1,8 @@
 {
-  "Home": {
-    "welcome": "Bienvenido"
+  "Photo": {
+    "empty": "Dispositivo no detectado",
+    "save": "Guardar foto",
+    "confirm": "¿Está seguro de que deseas guardar esta foto?",
+    "enabled-permission": "Actualmente no tienes habilitado los permisos para acceder a la cámara. Para poder continuar, por favor habilita los permisos de la camara en la configuración de tu teléfono."
   }
 }

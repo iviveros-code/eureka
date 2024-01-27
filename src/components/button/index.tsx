@@ -41,7 +41,7 @@ export const Button = ({
         <RNPButton
           style={[disabled && styles.disabled]}
           labelStyle={[
-            globalStyles.text_fs12_black,
+            globalStyles.text_fs12,
             styles.labelStyle,
             styles.outlined,
           ]}

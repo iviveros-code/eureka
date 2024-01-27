@@ -15,7 +15,7 @@ const Home = () => {
     <View style={styles.container}>
       <Text>Home Screen</Text>
       <View style={{}}>
-        <Button title='Go to Photo' onPress={goToPhoto} mode='contained' />
+        <Button title='Take Picture' onPress={goToPhoto} mode='contained' />
       </View>
     </View>
   )

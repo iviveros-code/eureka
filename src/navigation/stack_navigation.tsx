@@ -2,7 +2,7 @@ import { createStackNavigator, TransitionPresets } from '@react-navigation/stack
 
 import { Home, Photo, DetailPhoto } from '@screens'
 import { RootStackParamList } from '@types'
-import { SCREEN_NAMES } from '@constants'
+import { SCREEN_NAMES, IS_ANDROID } from '@constants'
 
 import { headerConfig } from './header-config'
 
@@ -15,24 +15,26 @@ const StackNavigation = () => {
         name={SCREEN_NAMES.HOME}
         component={Home}
         options={{
-          headerShown: false,
+          ...headerConfig('Eurekalabs'),
+          headerTitleAlign: 'center',
         }}
       />
       <Stack.Screen
         name={SCREEN_NAMES.PHOTO}
         component={Photo}
         options={{
-          ...headerConfig('Photo'),
+          ...headerConfig(''),
           ...TransitionPresets.ModalSlideFromBottomIOS,
+          headerTitle: '', //necessary for android
         }}
       />
       <Stack.Screen
         name={SCREEN_NAMES.DETAIL_PHOTO}
         component={DetailPhoto}
         options={{
-          ...headerConfig('Detail Photo'),
-
+          ...headerConfig(''),
           ...TransitionPresets.ModalSlideFromBottomIOS,
+          headerTitle: '', //necessary for android
         }}
       />
     </Stack.Navigator>

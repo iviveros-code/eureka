@@ -1,4 +1,4 @@
-import { MD3LightTheme as DefaultTheme, } from 'react-native-paper'
+import { MD3LightTheme as DefaultTheme } from 'react-native-paper'
 import { Font } from 'react-native-paper/lib/typescript/types'
 
 import { createGlobalStyles } from './globalStyles'
@@ -8,11 +8,10 @@ export const theme = {
   colors: {
     ...DefaultTheme.colors,
     white: '#FFFFFF',
-    black: '#000000',
+    black: '#564f4b',
     grey: 'grey',
     blue: '#1A73E7',
-    primary_red: 'rgba(166, 36, 59, 1)',
-    tabBarShadow: 'rgba(0, 92, 51, 0.08)',
+    orange: '#fd7100',
     transparent: 'transparent',
     error: '#BC3C5A',
     backdropColor: 'rgba(0, 0, 0, 0.3)',
@@ -49,23 +48,12 @@ export const theme = {
       fontWeight: '700' as Font['fontWeight'],
     },
   },
-  spacing: {
-    xs: 4,
-    sm: 8,
-    md: 16,
-    lg: 24,
-    xl: 40,
-    xxl: 64,
-  },
+
   general_spacing: {
     md: 10,
     lg: 20,
   },
 
-  icon: {
-    width: 32,
-    height: 32,
-  },
   shadow: {
     shadowColor: '#000000',
     shadowOffset: {

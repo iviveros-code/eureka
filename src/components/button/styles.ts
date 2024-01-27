@@ -5,7 +5,7 @@ import { verticalScale, moderateScale } from '@helpers'
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'orange',
+    backgroundColor: theme.colors.orange,
     height: verticalScale(50),
     borderRadius: 10,
     justifyContent: 'center',

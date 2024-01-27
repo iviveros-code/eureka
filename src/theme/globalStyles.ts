@@ -1,17 +1,7 @@
 import { StyleSheet } from 'react-native'
 
-import { verticalScale } from '@helpers'
-import {
-  FontSize10,
-  FontSize12,
-  FontSize14,
-  FontSize16,
-  FontSize18,
-  FontSize32,
-  IS_ANDROID,
-  FontSize24,
-  FontSize13,
-} from '@constants'
+import { FontSize12, FontSize16 } from '@constants'
+import { horizontalScale } from '@helpers'
 
 export const createGlobalStyles = (theme: any) =>
   StyleSheet.create({
@@ -22,41 +12,29 @@ export const createGlobalStyles = (theme: any) =>
 
     text_fs12: {
       fontSize: FontSize12,
-      color: theme.colors.primary_green_dark,
+      color: theme.colors.black,
+      ...theme.fonts.regular,
+    },
+    text_fs16: {
+      fontSize: FontSize16,
+      color: theme.colors.black,
+      ...theme.fonts.regular,
+    },
+    text_fs16_white: {
+      fontSize: FontSize16,
+      color: theme.colors.white,
       ...theme.fonts.regular,
     },
 
-    footerButtons: {
+    flex: {
       flex: 1,
-      justifyContent: 'flex-end',
-      marginBottom: verticalScale(20),
     },
-    marginButtons: {
-      marginVertical: verticalScale(10),
-    },
-    containerTitle: {
-      alignSelf: 'center',
-    },
-    title: {
-      textAlign: 'center',
-    },
-
-    row: {
-      flexDirection: 'row',
-      alignItems: 'center',
-    },
-
-    jcontent: {
-      justifyContent: 'space-between',
-    },
-    screen: {
-      position: 'absolute',
-      top: 0,
-      left: 0,
-      width: '100%',
-      height: '100%',
-      alignItems: 'center',
+    center: {
+      flex: 1,
       justifyContent: 'center',
-      zIndex: 100,
+      alignItems: 'center',
+    },
+    globalPadding: {
+      paddingHorizontal: horizontalScale(24),
     },
   })

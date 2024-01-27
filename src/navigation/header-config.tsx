@@ -3,7 +3,6 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 
 import { theme } from '@theme'
 import { moderateScale } from '@helpers'
-import { IS_ANDROID } from '@constants'
 
 export const hideHeader = {
   headerShown: false,
@@ -12,16 +11,15 @@ export const hideHeader = {
 export const headerConfig = (customTitle?: string) => ({
   headerBackImage: () => (
     <View style={styles.arrow}>
-      <Icon name='arrow-back-ios' size={moderateScale(24)} color={theme.colors.primary_red} />
+      <Icon name='arrow-back-ios' size={moderateScale(24)} color={theme.colors.black} />
     </View>
   ),
-  headerBackTitle: customTitle || '',
+  headerBackTitle: '',
   headerBackTitleStyle: styles.titleHeader,
-  headerTitle: IS_ANDROID ? customTitle : '',
+  headerTitle: customTitle,
   headerTitleStyle: styles.titleHeader,
-  headerTransparent: true,
   headerShadowVisible: false,
-  headerTintColor: theme.colors.white,
+  headerTintColor: theme.colors.black,
 })
 
 const styles = StyleSheet.create({

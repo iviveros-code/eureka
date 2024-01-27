@@ -25,10 +25,4 @@ export const styles = StyleSheet.create({
     width: '80%',
     height: '45%',
   },
-  buttonsContainer: {
-    flexDirection: 'row',
-    width: '90%',
-    alignItems: 'center',
-    justifyContent: 'space-around',
-  },
 })

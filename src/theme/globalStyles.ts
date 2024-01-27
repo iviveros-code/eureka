@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native'
 
 import { FontSize12, FontSize16 } from '@constants'
-import { horizontalScale } from '@helpers'
+import { horizontalScale, verticalScale } from '@helpers'
 
 export const createGlobalStyles = (theme: any) =>
   StyleSheet.create({
@@ -35,6 +35,11 @@ export const createGlobalStyles = (theme: any) =>
       alignItems: 'center',
     },
     globalPadding: {
+      paddingHorizontal: horizontalScale(24),
+    },
+    footer: {
+      justifyContent: 'flex-end',
+      marginBottom: verticalScale(40),
       paddingHorizontal: horizontalScale(24),
     },
   })

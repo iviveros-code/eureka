@@ -7,15 +7,17 @@ import Icon from 'react-native-vector-icons/MaterialIcons'
 import { useNavigation } from '@react-navigation/native'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import { useTranslation } from 'react-i18next'
+import { useDispatch, useSelector } from 'react-redux'
 
 import { NavigationService } from '@services'
 import { Images } from '@constants'
 import { globalStyles, theme } from '@theme'
 import { moderateScale, horizontalScale, verticalScale } from '@helpers'
-import { Button } from '@components'
+import { Button, CustomModal } from '@components'
+import { addPhoto } from '@redux/photos-slice'
+import { RootState } from '@redux/store'
 
 import { styles } from './styles'
-import { CustomModal } from '../../components/modal'
 
 const Photo = () => {
   const device = useCameraDevice('back')
@@ -26,6 +28,8 @@ const Photo = () => {
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const navigation = useNavigation()
   const { t } = useTranslation()
+  const dispatch = useDispatch()
+  const photos = useSelector((state: RootState) => state.photos.photos)
 
   const camera = useRef<Camera>(null)
 
@@ -45,7 +49,7 @@ const Photo = () => {
 
   useFocusEffect(
     useCallback(() => {
-      if (photo) {
+      if (photo && !photos.length) {
         navigation.setOptions({
           headerShown: false,
         })
@@ -68,7 +72,7 @@ const Photo = () => {
       <View style={globalStyles.center}>
         <ActivityIndicator size='large' color={theme.colors.orange} />
         <CustomModal visible={modalVisible}>
-          <View style={globalStyles.globalPadding}>
+          <View style={[globalStyles.globalPadding, globalStyles.center]}>
             <Text>{t('Photo.enabled-permission')}</Text>
           </View>
           <View style={[globalStyles.globalPadding, styles.modalFooter]}>
@@ -119,6 +123,7 @@ const Photo = () => {
           text: 'OK',
           onPress: () => {
             savedPhoto
+            dispatch(addPhoto(savedPhoto))
             setPhoto(undefined)
           },
         },

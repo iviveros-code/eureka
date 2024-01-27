@@ -1,9 +1,15 @@
 import { StyleSheet } from 'react-native'
 
+import { verticalScale } from '@helpers'
+
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+  containerList: {
+    marginTop: verticalScale(30),
+  },
+  center: {
+    alignSelf: 'center',
+  },
+  noPic: {
+    marginTop: verticalScale(10),
   },
 })

@@ -4,5 +4,8 @@
     "save": "Save photo",
     "confirm": "Are you sure you want to save this photo?",
     "enabled-permission": "You currently do not have the permissions enabled to access the camera. To continue, please enable the camera permissions in your phone's settings."
+  },
+  "Home": {
+    "empty": "There are no images to display yet"
   }
 }

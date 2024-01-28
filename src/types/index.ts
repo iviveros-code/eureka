@@ -3,6 +3,7 @@ import { SCREEN_NAMES } from '@constants'
 export type ScreenName = (typeof SCREEN_NAMES)[keyof typeof SCREEN_NAMES]
 
 export interface PhotoInfo {
+  id: number
   path: string
   location?: {
     latitude: number

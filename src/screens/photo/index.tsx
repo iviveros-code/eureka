@@ -64,12 +64,17 @@ const Photo = () => {
 
   useFocusEffect(
     useCallback(() => {
-      if (photo && !photos.length) {
+      if (photo) {
         navigation.setOptions({
           headerShown: false,
         })
       }
-    }, [photo]),
+      if (photos.length > 0) {
+        navigation.setOptions({
+          headerShown: true,
+        })
+      }
+    }, [photo, photos]),
   )
 
   useEffect(() => {
@@ -194,7 +199,7 @@ const Photo = () => {
           text: 'OK',
           onPress: () => {
             savedPhoto
-            dispatch(addPhoto({ path: savedPhoto, location }))
+            dispatch(addPhoto({ id: Math.random(), path: savedPhoto, location }))
             setPhoto(undefined)
           },
         },

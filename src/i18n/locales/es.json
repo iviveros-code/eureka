@@ -11,6 +11,8 @@
   "Detail": {
     "address": "Dirección :",
     "latitude": "Latitud :",
-    "longitude": "Longitud :"
+    "longitude": "Longitud :",
+    "delete": "Eliminar",
+    "confirm": "¿Está seguro de que deseas eliminar esta foto?"
   }
 }

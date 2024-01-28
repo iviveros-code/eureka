@@ -11,6 +11,8 @@
   "Detail": {
     "address": "Address :",
     "longitude": "Longitude :",
-    "latitude": "Latitude :"
+    "latitude": "Latitude :",
+    "delete": "Delete",
+    "confirm": "Are you sure you want to delete this photo?"
   }
 }

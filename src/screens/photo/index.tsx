@@ -233,7 +233,7 @@ const Photo = () => {
           />
           <View style={styles.footer}>
             <View style={styles.containerButton}>
-              <Button title='Save Photo' mode='contained' onPress={savePhoto} />
+              <Button title={t('Photo.save')} mode='contained' onPress={savePhoto} />
             </View>
           </View>
         </View>

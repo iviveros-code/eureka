@@ -46,7 +46,7 @@ const Home = () => {
       )}
 
       <View style={globalStyles.footer}>
-        <Button title='Take Picture' onPress={goToPhoto} mode='contained' />
+        <Button title={t("Photo.take-photo")} onPress={goToPhoto} mode='contained' />
       </View>
     </View>
   )

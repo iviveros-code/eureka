@@ -124,7 +124,7 @@ const DetailPhoto = ({ route }: DetailPhotoProps) => {
               </View>
             </View>
             <View style={styles.buttonContainer}>
-              <Button title={'Share this photo'} mode={'contained'} onPress={sharePhoto} />
+              <Button title={t('Photo.share')} mode={'contained'} onPress={sharePhoto} />
             </View>
           </View>
         </>

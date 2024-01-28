@@ -7,5 +7,10 @@
   },
   "Home": {
     "empty": "There are no images to display yet"
+  },
+  "Detail": {
+    "address": "Address :",
+    "longitude": "Longitude :",
+    "latitude": "Latitude :"
   }
 }

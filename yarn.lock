@@ -6777,6 +6777,11 @@ react-native-fast-image@^8.6.3:
   resolved "https://registry.yarnpkg.com/react-native-fast-image/-/react-native-fast-image-8.6.3.tgz#6edc3f9190092a909d636d93eecbcc54a8822255"
   integrity sha512-Sdw4ESidXCXOmQ9EcYguNY2swyoWmx53kym2zRsvi+VeFCHEdkO+WG1DK+6W81juot40bbfLNhkc63QnWtesNg==
 
+react-native-geocoding@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-geocoding/-/react-native-geocoding-0.5.0.tgz#69748f896047a63d1c3c1d55255f9d67c8e275c2"
+  integrity sha512-peTXRpRxPLiZpbTW43AOvoXXAEoS+eLnSo4KRY0hcL9F2hulWE5r7o5KiaLx8AWj35c6EJP3fdGHe754q2Gd2Q==
+
 react-native-geolocation-service@^5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/react-native-geolocation-service/-/react-native-geolocation-service-5.3.1.tgz#4ce1017789da6fdfcf7576eb6f59435622af4289"
@@ -6809,10 +6814,10 @@ react-native-paper@^5.1.4:
     color "^3.1.2"
     use-event-callback "^0.1.0"
 
-react-native-permissions@^4.0.4:
-  version "4.0.4"
-  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-4.0.4.tgz#5156d61230193c5eedd96a6e54f2a1e65d582baf"
-  integrity sha512-7xU71u1Xe239F7DCvO3rfuqthzOa52v5Nvd0OQ5OpEkL9S9UGhWMLRw0b7OC9zti846puTGJDnjy8FvXiAzgxQ==
+react-native-permissions@^4.1.0:
+  version "4.1.0"
+  resolved "https://registry.yarnpkg.com/react-native-permissions/-/react-native-permissions-4.1.0.tgz#6f09c2ea6d20554608312ca6450990abe52392ac"
+  integrity sha512-P07Ge+gxj0yLcKPE9YK5EQq6PEYDi78aHtJs8E6LAh0actAqe3r3CxnqyVHJ+w4NQbXCJwoqqGTLULYn7OeuhA==
 
 react-native-safe-area-context@^4.5.0:
   version "4.5.0"

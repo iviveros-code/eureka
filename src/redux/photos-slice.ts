@@ -1,7 +1,9 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 
+import { PhotoInfo } from '@types'
+
 interface PhotoState {
-  photos: string[]
+  photos: PhotoInfo[]
 }
 
 const initialState: PhotoState = {
@@ -12,7 +14,7 @@ export const photosSlice = createSlice({
   name: 'photos',
   initialState,
   reducers: {
-    addPhoto: (state, action: PayloadAction<string>) => {
+    addPhoto: (state, action: PayloadAction<PhotoInfo>) => {
       state.photos.push(action.payload)
     },
   },

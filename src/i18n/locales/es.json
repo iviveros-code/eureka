@@ -5,7 +5,12 @@
     "confirm": "¿Está seguro de que deseas guardar esta foto?",
     "enabled-permission": "Actualmente no tienes habilitado los permisos para acceder a la cámara. Para poder continuar, por favor habilita los permisos de la camara en la configuración de tu teléfono."
   },
-  "Home":{
-    "empty" : "Aún no hay imágenes para mostrar"
+  "Home": {
+    "empty": "Aún no hay imágenes para mostrar"
+  },
+  "Detail": {
+    "address": "Dirección :",
+    "latitude": "Latitud :",
+    "longitude": "Longitud :"
   }
 }

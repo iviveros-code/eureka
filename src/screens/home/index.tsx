@@ -13,6 +13,7 @@ import { styles } from './styles'
 
 const Home = () => {
   const photos = useSelector((state: RootState) => state.photos.photos)
+
   const { t } = useTranslation()
 
   const goToPhoto = () => {
@@ -28,10 +29,13 @@ const Home = () => {
           data={photos}
           renderItem={({ item }) => {
             return (
-              <CardPhotos uri={item} onPress={() => NavigationService.navigate(SCREEN_NAMES.DETAIL_PHOTO, { item })} />
+              <CardPhotos
+                uri={item?.path}
+                onPress={() => NavigationService.navigate(SCREEN_NAMES.DETAIL_PHOTO, { item })}
+              />
             )
           }}
-          keyExtractor={item => item}
+          keyExtractor={(item, index) => `${item}-${index}`}
           numColumns={3}
         />
       ) : (

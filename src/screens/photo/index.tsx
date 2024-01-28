@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect, useCallback } from 'react'
-import { View, Text, StyleSheet, ActivityIndicator, Linking, Pressable, Alert } from 'react-native'
+import { View, Text, StyleSheet, ActivityIndicator, Linking, Pressable, Alert, Platform } from 'react-native'
 import { Camera, useCameraDevice, useCameraPermission, PhotoFile, TakePhotoOptions } from 'react-native-vision-camera'
 import { useFocusEffect } from '@react-navigation/native'
 import FastImage from 'react-native-fast-image'
@@ -8,6 +8,8 @@ import { useNavigation } from '@react-navigation/native'
 import { CameraRoll } from '@react-native-camera-roll/camera-roll'
 import { useTranslation } from 'react-i18next'
 import { useDispatch, useSelector } from 'react-redux'
+import Geolocation from 'react-native-geolocation-service'
+import { request, PERMISSIONS, RESULTS } from 'react-native-permissions'
 
 import { NavigationService } from '@services'
 import { Images } from '@constants'
@@ -23,7 +25,7 @@ const Photo = () => {
   const device = useCameraDevice('back')
   const { hasPermission, requestPermission } = useCameraPermission()
   const [isActive, setIsActive] = useState<boolean>(false)
-  const [photo, setPhoto] = useState<PhotoFile>()
+  const [photo, setPhoto] = useState<PhotoFileWithLocation>()
   const [flash, setFlash] = useState<TakePhotoOptions['flash']>('off')
   const [modalVisible, setModalVisible] = useState<boolean>(false)
   const navigation = useNavigation()
@@ -32,6 +34,19 @@ const Photo = () => {
   const photos = useSelector((state: RootState) => state.photos.photos)
 
   const camera = useRef<Camera>(null)
+
+  interface Position {
+    coords: {
+      latitude: number
+      longitude: number
+    }
+  }
+  interface PhotoFileWithLocation extends PhotoFile {
+    location?: {
+      latitude: number
+      longitude: number
+    }
+  }
 
   const toggleModal = () => {
     setModalVisible(!modalVisible)
@@ -100,11 +115,66 @@ const Photo = () => {
     )
   }
 
+  const requestLocationPermission = async () => {
+    if (Platform.OS === 'ios') {
+      const status = await request(PERMISSIONS.IOS.LOCATION_WHEN_IN_USE, {
+        title: 'Location Permission',
+        message: 'We need your permission to access your location',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      })
+
+      return status === RESULTS.GRANTED
+    }
+
+    if (Platform.OS === 'android') {
+      const status = await request(PERMISSIONS.ANDROID.ACCESS_FINE_LOCATION, {
+        title: 'Location Permission',
+        message: 'We need your permission to access your location',
+        buttonNeutral: 'Ask Me Later',
+        buttonNegative: 'Cancel',
+        buttonPositive: 'OK',
+      })
+
+      return status === RESULTS.GRANTED
+    }
+
+    return false
+  }
+
   const takePicture = async () => {
     const photo = await camera.current?.takePhoto({
       flash,
     })
-    setPhoto(photo)
+
+    if (photo) {
+      const hasPermission = await requestLocationPermission()
+
+      if (hasPermission) {
+        try {
+          const position = await new Promise<Position>((resolve, reject) => {
+            Geolocation.getCurrentPosition(resolve, reject, {
+              enableHighAccuracy: true,
+              timeout: 15000,
+              maximumAge: 10000,
+            })
+          })
+
+          const location = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude,
+          }
+
+          setPhoto({ ...photo, location })
+        } catch (error) {
+          console.log('error =>', error)
+          setPhoto(photo)
+        }
+      } else {
+        console.log('denied permission')
+      }
+    }
   }
 
   const savePhoto = async () => {
@@ -112,6 +182,7 @@ const Photo = () => {
       const savedPhoto = await CameraRoll.save(`file://${photo?.path}`, {
         type: 'photo',
       })
+      const location = photo?.location
       Alert.alert(t('Photo.save'), t('Photo.confirm'), [
         {
           text: 'Cancel',
@@ -123,7 +194,7 @@ const Photo = () => {
           text: 'OK',
           onPress: () => {
             savedPhoto
-            dispatch(addPhoto(savedPhoto))
+            dispatch(addPhoto({ path: savedPhoto, location }))
             setPhoto(undefined)
           },
         },

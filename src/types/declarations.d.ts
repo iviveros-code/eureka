@@ -1,6 +1,7 @@
 declare module '*.png'
 declare module '*.jpeg'
 declare module '*.jpg'
+declare module '*webp'
 declare module '*.svg' {
   // eslint-disable-next-line import/order
   import React from 'react'

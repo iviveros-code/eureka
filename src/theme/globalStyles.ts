@@ -5,11 +5,6 @@ import { horizontalScale, verticalScale } from '@helpers'
 
 export const createGlobalStyles = (theme: any) =>
   StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: theme.colors.primary_green,
-    },
-
     text_fs12: {
       fontSize: FontSize12,
       color: theme.colors.black,
@@ -41,5 +36,9 @@ export const createGlobalStyles = (theme: any) =>
       justifyContent: 'flex-end',
       marginBottom: verticalScale(40),
       paddingHorizontal: horizontalScale(24),
+    },
+    row: {
+      flexDirection: 'row',
+      alignItems: 'center',
     },
   })

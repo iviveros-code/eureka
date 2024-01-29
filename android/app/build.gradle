@@ -2,6 +2,13 @@ apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 apply from: file("../../node_modules/react-native-vector-icons/fonts.gradle")
 
+project.ext.envConfigFiles = [
+    dev: ".env.development",
+    stg: ".env.staging",
+    prod: ".env.production"
+]
+apply from: project(':react-native-config').projectDir.getPath() + "/dotenv.gradle"
+
 import com.android.build.OutputFile
 
 /**
@@ -101,6 +108,7 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        resValue "string", "build_config_package", "com.eureka"
     }
 
     splits {
@@ -117,6 +125,14 @@ android {
             storePassword 'android'
             keyAlias 'androiddebugkey'
             keyPassword 'android'
+        }
+        release {
+            if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
+                storeFile file(MYAPP_UPLOAD_STORE_FILE)
+                storePassword MYAPP_UPLOAD_STORE_PASSWORD
+                keyAlias MYAPP_UPLOAD_KEY_ALIAS
+                keyPassword MYAPP_UPLOAD_KEY_PASSWORD
+            }
         }
     }
     buildTypes {
@@ -145,6 +161,18 @@ android {
                         defaultConfig.versionCode * 1000 + versionCodes.get(abi)
             }
 
+        }
+    }
+    flavorDimensions "main"
+    productFlavors {
+         dev {
+        applicationId project.env.get("DEV_APP_ID")
+        }
+        stg {
+        applicationId project.env.get("STG_APP_ID")
+         }
+         prod {
+        applicationId project.env.get("PROD_APP_ID")
         }
     }
 }

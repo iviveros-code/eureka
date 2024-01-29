@@ -1,4 +1,4 @@
-# eureka
+# Eurekalabs challenge
 
 > [!NOTE]
 > This app was made from the following boilerplate:
@@ -8,7 +8,7 @@
 > [!WARNING]
 > Installation:
 
-o install eureka, follow these steps:
+To install eureka, follow these steps:
 
 1. Clone the repository:
    ```bash
@@ -25,9 +25,16 @@ o install eureka, follow these steps:
 > [!TIP]
 > This project has flavors,  so for run :
 
-Android : yarn android:dev
+Android : 
 
-iOS: yarn ios
+```bash
+yarn android:dev
+
+
+iOS : 
+
+```bash
+yarn ios
 
 
 

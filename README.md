@@ -25,15 +25,14 @@ To install eureka, follow these steps:
 > [!TIP]
 > This project has flavors,  so for run :
 
-Android : 
+ 
 
 ```bash
+Android :
 yarn android:dev
 
 
 iOS : 
-
-```bash
 yarn ios
 
 
